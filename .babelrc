@@ -2,7 +2,8 @@
   "presets": [
     "es2015",
     "react",
-    "airbnb"
+    "airbnb",
+    "stage-0"
   ],
   "plugins": [
     "babel-plugin-transform-decorators-legacy",

@@ -103,7 +103,7 @@ class WebpackBaseConfig {
             query: {
               cacheDirectory: true,
               plugins: ['transform-decorators-legacy' ],
-              presets: ['es2015', 'stage-0', 'react']
+              presets: ['env', 'stage-0', 'react']
             }
           }
         ]
