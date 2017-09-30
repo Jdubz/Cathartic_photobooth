@@ -1,14 +1,9 @@
-import utility from './utilityServices'
+import axios from 'axios';
 
-const api = utility.api
-
-// const nameFunction = () => api.get('conditions/highlighted')
-//
-// const resetPassword = (password, token) => api.post('auth/reset', {
-//   password,
-//   token
-// })
+const postPhoto = (photo) => {
+  return axios.post('/photo', photo);
+};
 
 module.exports = {
-  resetPassword
-}
+  postPhoto,
+};
