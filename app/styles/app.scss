@@ -1,0 +1,229 @@
+/////////////
+// Global css
+/////////////
+
+// colors and other things stored here
+@import "./globalsettings";
+
+//// Utilities
+@import '../../node_modules/include-media/dist/_include-media';
+
+//// Google fonts
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: normal;
+}
+
+body,html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: $dark-grey;
+  font-size: $basefontsize;
+  background-color: $global-container-background-color;
+}
+body {
+  overflow-y: scroll;
+}
+
+a {
+  color: $dark-grey;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.globalContainer {
+  width: 100%;
+}
+
+.responsiveWidth {
+  @include media("<tablet") {
+    width: 100%;
+  }
+  @include media(">tablet") {
+    width: 100%;
+  }
+  @include media(">desktop") {
+    width: 100%;
+  }
+  background-color: $content-container-background-color;
+  margin: 0 auto;
+}
+
+// make sure these match the javascript config variables
+// Located at hg-FE/conf/gloabl_config
+$breakpoint_phone: 450px;
+$breakpoint_tablet: 768px;
+$breakpoint_desktop: 1024px;
+$breakpoints: (phone: $breakpoint_phone, tablet: $breakpoint_tablet, desktop: $breakpoint_desktop) !default;
+
+$content-maximum-width: 1000px;
+$content-width-2: 85%;
+$content-width-3: 90%;
+$content-width-4: 95%;
+$content-width-5: 100%;
+
+$breakpoint-1: 1200;
+$breakpoint-2: 1200;
+$breakpoint-3: 1000;
+$breakpoint-4: 930;
+$breakpoint-5: 880;
+
+.globalWidthMediaQueries {
+  margin: 0 auto;
+  @include media('>=#{$breakpoint-1}px') {
+    width: $content-maximum-width;
+  }
+  @include media('<#{$breakpoint-2}px') {
+    width: $content-width-2;
+  }
+  @include media('<#{$breakpoint-3}px') {
+    width: $content-width-3;
+  }
+  @include media('<#{$breakpoint-4}px') {
+    width: $content-width-4;
+  }
+  @include media('<#{$breakpoint-5}px') {
+    width: $content-width-5;
+  }
+}
+
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1em;
+}
+h4 {
+  font-size: .8em;
+}
+h5 {
+  font-size: .6em;
+}
+h6 {
+  font-size: .4em;
+}
+
+// These styles are for links which should look like links but actually are not
+// Ensure any changes match the actual a styles above
+.alink {
+  text-decoration: none;
+}
+.alinkvisited {
+  color: black;
+}
+.alinkactive {
+  color: $global-active-color;
+}
+.alinkhover {
+  color: black;
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: darkgrey;
+  text-decoration: underline;
+}
+a:active {
+  color: $global-active-color;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently not supported by any browser */
+  cursor: default;
+}
+
+.nowrap {
+  white-space: nowrap ;
+}
+
+.nounderline {
+  text-decoration: none;
+}
+
+// removes outline when interacting with input elements
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.float-left {
+  float: left
+}
+.float-right {
+  float: right
+}
+.clearboth {
+  clear: both;
+}
+.text-center {
+  text-align: center;
+}
+
+// GLobal icon color fills
+.globalicon-red {
+  fill: red;
+}
+.globalicon-green {
+  fill: lighten($blue-highlight, 20%);
+}
+.globalicon-teal {
+  fill: $teal-highlight;
+}
+.globalicon-blue {
+  fill: $blue-highlight-2;
+}
+.globalicon-light-blue {
+  fill: lighten($blue-highlight, 20%);
+}
+
+.master-box-shadow {
+  -webkit-box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, .1);
+  -moz-box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, .1);
+  box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, .1);
+}
+
+.global-border-radius {
+  border-radius: .3em .3em .3em .3em;
+}
+
+.master-letter-spacing {
+  letter-spacing: .11em;
+}
+
+.dont-break-out {
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+/////////////////////
+// Components
+// @import '../containers/view1/view1';

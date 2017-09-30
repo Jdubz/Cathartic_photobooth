@@ -1,0 +1,61 @@
+// colors
+// Javascript availiable colors are found in in src/config/base
+// Make sure colors in each file match!
+
+$global-container-background-color: white;
+$content-container-background-color: #F5F5F5;
+
+$dark-grey: #4A4A4A;
+$light-grey: #6E6E6E;
+$light-grey-logo: #B8B8B8;
+$very-light-grey: #d9d9d9;
+
+$expert-dropdown-grey: #9A9A9A;
+
+$blue-highlight: #1DB2FF;
+$blue-button-highlight: #1DB2FF;
+$facebook-blue: #3C5B97;
+$blue-highlight-2: #00B1E3;
+
+$purple-highlight: #8F28FA;
+
+$teal-highlight: #00CCB9;
+$green-highlight: #1DC169;
+
+$orange-highlight: #FB5B3D;
+$dark-orange-highlight: #fa3f1e;
+
+$global-active-color: red;
+
+$textColor: $orange-highlight;
+$videoColor: $green-highlight;
+$surveyColor: $blue-highlight;
+$quizColor: $teal-highlight;
+$slideshowColor: $dark-grey;
+$qandaColor: #50c3ff;
+
+$correctColor: #00c365;
+$incorrectColor: #ff3c2c;
+
+//////////////////////////
+$header-height: 5em;
+$adminheader-height: $header-height;
+$basefontsize: 16px;
+
+// used for avatar and mobile dropdown menus
+$secondary-dropdown-menu-background-color: lighten($dark-grey, 6%);
+
+////////////////////////////////
+// form specific styles
+$form-padding: 3em;
+$form-top-margin: 3em;
+$form-bottom-margin: 12em;
+
+$default-widget-width: 500px;
+
+@mixin placeholder {
+    ::-webkit-input-placeholder {@content}
+    :-moz-placeholder           {@content}
+    ::-moz-placeholder          {@content}
+    :-ms-input-placeholder      {@content}
+}
