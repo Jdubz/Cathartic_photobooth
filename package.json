@@ -5,6 +5,7 @@
   "description": "take yo picta",
   "scripts": {
     "clean": "rimraf dist/*",
+    "withServer": "webpack -w --progress --bail --env dist",
     "dist": "npm run clean && webpack --progress --bail --env dist",
     "serve:dev": "webpack-dev-server --open --hot --env dev",
     "serve:dist": "webpack-dev-server --open --env dist -p --progress",

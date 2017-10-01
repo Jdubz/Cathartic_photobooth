@@ -6,4 +6,4 @@ module.exports = {
   devServer: devServer,
   distServer: distServer,
   distCdnServer: distCdnServer
-}
+};

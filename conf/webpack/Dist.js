@@ -12,24 +12,15 @@ const distCdnServer = globalConfig.distCdnServer
 
 class WebpackDistConfig extends WebpackBaseConfig {
 
-  getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
-
   constructor() {
     super()
-
-    let thisUniqueHash = this.getRandomInt(999999999999999, 99999999999999999999)
-    let appUniqueFileName = 'app' + thisUniqueHash + '.js'
 
     this.config = {
       cache: false,
       devtool: 'source-map',
       output: {
-        path: 'dist',
-        filename: appUniqueFileName
+        path: __dirname + '/../../dist',
+        filename: 'app.js',
       },
       plugins: [
         new webpack.LoaderOptionsPlugin({
@@ -52,7 +43,7 @@ class WebpackDistConfig extends WebpackBaseConfig {
         new webpack.NoEmitOnErrorsPlugin(),
         new HtmlWebpackPlugin({
           template: 'index.ejs',
-          jsfilesource: distCdnServer + '/' + appUniqueFileName,
+          jsfilesource: distCdnServer + '/app.js',
           hash: true,
           inject: false
         }),

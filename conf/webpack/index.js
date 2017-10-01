@@ -7,5 +7,5 @@ const test = require('./Test');
 module.exports = {
   dev,
   dist,
-  test
+  test,
 };
