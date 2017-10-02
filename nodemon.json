@@ -1,0 +1,10 @@
+{
+  "verbose": true,
+  "ignore": [
+    "app/*",
+    "conf/*",
+    "dist/*",
+    "photos/*",
+    "node-modules/*"
+  ]
+}

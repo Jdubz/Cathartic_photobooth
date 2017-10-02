@@ -4,16 +4,13 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 
-const WebpackBaseConfig = require('./Base')
-const globalConfig = require('../global_config')
-
-// let server = globalConfig.devServer
-const distCdnServer = globalConfig.distCdnServer
+const WebpackBaseConfig = require('./Base');
+const globalConfig = require('../global_config');
 
 class WebpackDistConfig extends WebpackBaseConfig {
 
   constructor() {
-    super()
+    super();
 
     this.config = {
       cache: false,
@@ -24,26 +21,26 @@ class WebpackDistConfig extends WebpackBaseConfig {
       },
       plugins: [
         new webpack.LoaderOptionsPlugin({
-          minimize: true,
+          minimize: false,
           debug: false
         }),
         new webpack.optimize.UglifyJsPlugin({
           compress: {
             warnings: false,
-            drop_console: true,
+            drop_console: false,
           },
           output: {
             comments: false,
           }
         }),
         new webpack.DefinePlugin({
-          'process.env.NODE_ENV': '"production"'
+          'process.env.NODE_ENV': '"dev"'
         }),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new HtmlWebpackPlugin({
           template: 'index.ejs',
-          jsfilesource: distCdnServer + '/app.js',
+          jsfilesource: '/app.js',
           hash: true,
           inject: false
         }),
@@ -61,4 +58,4 @@ class WebpackDistConfig extends WebpackBaseConfig {
   }
 }
 
-module.exports = WebpackDistConfig
+module.exports = WebpackDistConfig;

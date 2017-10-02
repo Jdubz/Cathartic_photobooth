@@ -25,7 +25,12 @@ class View1 extends React.Component {
   }
 
   capture() {
-    console.log(this.webcam.getScreenshot());
+    const img64 = this.webcam.getScreenshot();
+    console.log(img64);
+    apiCalls.postPhoto(img64)
+      .then((res) => {
+        console.log(res);
+      });
   }
 
   render() {
