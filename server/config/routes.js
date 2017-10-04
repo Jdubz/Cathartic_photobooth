@@ -1,15 +1,16 @@
 const Printer = require('printer');
 const fs = require('fs');
 
+const PRINTER = 'HiTi_P525L';
+
 const dir = './photos';
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
 }
 
-console.log(Printer.getPrinters());
+// console.log(Printer.getPrinters());
 // console.log(Printer.getPrinterDriverOptions('HiTi_P525L'));
-// const printer = new Printer('HiTi_P525L');
-console.log(Printer.getSupportedPrintFormats());
+// console.log(Printer.getSupportedPrintFormats());
 
 const options = {
   PageSize: 'P6x4',

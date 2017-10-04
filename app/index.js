@@ -12,7 +12,6 @@ import {
 
 // components
 import View1 from 'containers/view1/view1'
-import View2 from 'containers/view2/view2'
 
 // styles import. It needs to be in the project somewhere once
 import styles from 'styles/app.scss'
@@ -51,7 +50,6 @@ render(
 
       <Router history={ browserHistory } onUpdate={logPageView}>
         <Route path="/" component={View1}/>
-        <Route path="/2" component={View2}/>
       </Router>
 
     </div>
