@@ -1,16 +1,12 @@
 const Printer = require('printer');
 const fs = require('fs');
 
-const PRINTER = 'HiTi_P525L';
+let PRINTER = 'HiTi_P525L';
 
 const dir = './photos';
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
 }
-
-// console.log(Printer.getPrinters());
-// console.log(Printer.getPrinterDriverOptions('HiTi_P525L'));
-// console.log(Printer.getSupportedPrintFormats());
 
 const options = {
   PageSize: 'P6x4',
@@ -30,20 +26,28 @@ module.exports = (app) => {
         const photoBuf = new Buffer(img64, 'base64');
         Printer.printDirect({
           data: photoBuf,
-          printer: 'HiTi_P525L',
+          printer: PRINTER,
           type: 'JPEG',
           options,
           success: (jobId) => {
             console.log('job ' + jobId + ' success');
+            res.send('job ' + jobId + ' printing');
           },
-          error: console.error,
+          error: (err) => {
+            console.error(err);
+            res.send(err);
+          },
         });
-        res.send();
       }
     });
   });
   app.get('/printers', (req, res) => {
-    res.send('implementing');
+    const printerList = Printer.getPrinters();
+    res.send(printerList);
+  });
+  app.post('/printer', (req, res) => {
+    PRINTER = req.body.printer.name;
+    res.send();
   });
 };
 
