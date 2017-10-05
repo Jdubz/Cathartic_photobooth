@@ -11,7 +11,7 @@ import {
 } from 'globalImports'
 
 // components
-import View1 from 'containers/view1/view1'
+import View1 from 'containers/ready/ready';
 
 // styles import. It needs to be in the project somewhere once
 import styles from 'styles/app.scss'

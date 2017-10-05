@@ -1,12 +1,13 @@
 const Printer = require('printer');
 const fs = require('fs');
+const SerialPort = require('serialport');
 
 let PRINTER = 'HiTi_P525L';
 
-const dir = './photos';
-if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
-}
+// const dir = './photos';
+// if (!fs.existsSync(dir)){
+//     fs.mkdirSync(dir);
+// }
 
 const options = {
   PageSize: 'P6x4',
@@ -17,7 +18,7 @@ const options = {
 module.exports = (app) => {
   app.post('/photo', (req, res) => {
     const img64 = req.body.photo.replace(/^data:image\/jpeg;base64,/, "");
-    const filename = `photos/${Date.now()}.jpg`;
+    const filename = `/Volumes/RoadNazty/${Date.now()}.jpg`;
     fs.writeFile(filename, img64, 'base64', (err) => {
       if (err) {
         console.error(err);

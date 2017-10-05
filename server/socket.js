@@ -1,4 +1,20 @@
+const SerialPort = require('serialport');
+
 const connections = {};
+
+SerialPort.list()
+  .then(console.log);
+const port = new SerialPort('/dev/tty.wchusbserial14120', {
+  baudRate: 9600,
+});
+
+port.on('data', (data) => {
+  const strData = data.toString('utf8');
+  console.log('button ' + strData);
+  for (let socket in connections) {
+    connections[socket].emit('btnPress', strData);
+  }
+});
 
 const Socket = (io) => {
   io.on('connection', (socket) => {
