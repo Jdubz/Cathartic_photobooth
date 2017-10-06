@@ -3,11 +3,13 @@
   position: relative;
   width: 100%;
   height: 100%;
+  background: black;
+  overflow: hidden;
 }
 
 .instructions {
   position: absolute;
-  bottom: 2rem;
+  bottom: 0;
   width: 100%;
   text-align: center;
   text-shadow:
@@ -17,17 +19,21 @@
           1px 1px 0 #fff;
   h1 {
     font-size: 500%;
+    margin: 2rem;
   }
   .counter {
     font-size: 1000%;
+    margin: 0.5rem;
   }
 }
 
 .webCam {
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  filter: FlipH;
-  -ms-filter: "FlipH";
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  left: -360px;
+  bottom: 360px;
 }

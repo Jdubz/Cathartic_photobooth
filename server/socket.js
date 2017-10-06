@@ -4,7 +4,7 @@ const connections = {};
 
 SerialPort.list()
   .then(console.log);
-const port = new SerialPort('/dev/tty.wchusbserial14120', {
+const port = new SerialPort('/dev/tty.wchusbserial14140', {
   baudRate: 9600,
 });
 

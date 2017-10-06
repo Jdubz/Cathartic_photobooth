@@ -101,8 +101,8 @@ class View1 extends React.Component {
                 videoSource="5ab9f0efd2f21347f5bf3de7f79ee3ff7f0aa96d43ae167b336efcd3ba65fbf8"
                 screenshotFormat="image/jpeg"
                 audio={false}
-                height="auto"
-                width="100%"
+                height="1200px"
+                width="1920px"
               />
             )
           }
